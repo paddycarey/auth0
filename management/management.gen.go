@@ -402,6 +402,30 @@ func (c *ClientRefreshToken) GetExpirationType() string {
 	return *c.ExpirationType
 }
 
+// GetIdleTokenLifetime returns the IdleTokenLifetime field if it's non-nil, zero value otherwise.
+func (c *ClientRefreshToken) GetIdleTokenLifetime() int {
+	if c == nil || c.IdleTokenLifetime == nil {
+		return 0
+	}
+	return *c.IdleTokenLifetime
+}
+
+// GetInfiniteIdleTokenLifetime returns the InfiniteIdleTokenLifetime field if it's non-nil, zero value otherwise.
+func (c *ClientRefreshToken) GetInfiniteIdleTokenLifetime() bool {
+	if c == nil || c.InfiniteIdleTokenLifetime == nil {
+		return false
+	}
+	return *c.InfiniteIdleTokenLifetime
+}
+
+// GetInfiniteTokenLifetime returns the InfiniteTokenLifetime field if it's non-nil, zero value otherwise.
+func (c *ClientRefreshToken) GetInfiniteTokenLifetime() bool {
+	if c == nil || c.InfiniteTokenLifetime == nil {
+		return false
+	}
+	return *c.InfiniteTokenLifetime
+}
+
 // GetLeeway returns the Leeway field if it's non-nil, zero value otherwise.
 func (c *ClientRefreshToken) GetLeeway() int {
 	if c == nil || c.Leeway == nil {
@@ -3779,6 +3803,107 @@ func (r *RuleList) String() string {
 	return Stringify(r)
 }
 
+// GetCert returns the Cert field if it's non-nil, zero value otherwise.
+func (s *SigningKey) GetCert() string {
+	if s == nil || s.Cert == nil {
+		return ""
+	}
+	return *s.Cert
+}
+
+// GetCurrent returns the Current field if it's non-nil, zero value otherwise.
+func (s *SigningKey) GetCurrent() bool {
+	if s == nil || s.Current == nil {
+		return false
+	}
+	return *s.Current
+}
+
+// GetCurrentSince returns the CurrentSince field if it's non-nil, zero value otherwise.
+func (s *SigningKey) GetCurrentSince() time.Time {
+	if s == nil || s.CurrentSince == nil {
+		return time.Time{}
+	}
+	return *s.CurrentSince
+}
+
+// GetCurrentUntil returns the CurrentUntil field if it's non-nil, zero value otherwise.
+func (s *SigningKey) GetCurrentUntil() time.Time {
+	if s == nil || s.CurrentUntil == nil {
+		return time.Time{}
+	}
+	return *s.CurrentUntil
+}
+
+// GetFingerprint returns the Fingerprint field if it's non-nil, zero value otherwise.
+func (s *SigningKey) GetFingerprint() string {
+	if s == nil || s.Fingerprint == nil {
+		return ""
+	}
+	return *s.Fingerprint
+}
+
+// GetKID returns the KID field if it's non-nil, zero value otherwise.
+func (s *SigningKey) GetKID() string {
+	if s == nil || s.KID == nil {
+		return ""
+	}
+	return *s.KID
+}
+
+// GetNext returns the Next field if it's non-nil, zero value otherwise.
+func (s *SigningKey) GetNext() bool {
+	if s == nil || s.Next == nil {
+		return false
+	}
+	return *s.Next
+}
+
+// GetPKCS7 returns the PKCS7 field if it's non-nil, zero value otherwise.
+func (s *SigningKey) GetPKCS7() string {
+	if s == nil || s.PKCS7 == nil {
+		return ""
+	}
+	return *s.PKCS7
+}
+
+// GetPrevious returns the Previous field if it's non-nil, zero value otherwise.
+func (s *SigningKey) GetPrevious() bool {
+	if s == nil || s.Previous == nil {
+		return false
+	}
+	return *s.Previous
+}
+
+// GetRevoked returns the Revoked field if it's non-nil, zero value otherwise.
+func (s *SigningKey) GetRevoked() bool {
+	if s == nil || s.Revoked == nil {
+		return false
+	}
+	return *s.Revoked
+}
+
+// GetRevokedAt returns the RevokedAt field if it's non-nil, zero value otherwise.
+func (s *SigningKey) GetRevokedAt() time.Time {
+	if s == nil || s.RevokedAt == nil {
+		return time.Time{}
+	}
+	return *s.RevokedAt
+}
+
+// GetThumbprint returns the Thumbprint field if it's non-nil, zero value otherwise.
+func (s *SigningKey) GetThumbprint() string {
+	if s == nil || s.Thumbprint == nil {
+		return ""
+	}
+	return *s.Thumbprint
+}
+
+// String returns a string representation of SigningKey.
+func (s *SigningKey) String() string {
+	return Stringify(s)
+}
+
 // GetChangePassword returns the ChangePassword field.
 func (t *Tenant) GetChangePassword() *TenantChangePassword {
 	if t == nil {
@@ -4142,6 +4267,14 @@ func (t *TenantUniversalLoginColors) GetPageBackground() string {
 	return *t.PageBackground
 }
 
+// GetPageBackgroundGradient returns the PageBackgroundGradient field.
+func (t *TenantUniversalLoginColors) GetPageBackgroundGradient() *BrandingPageBackgroundGradient {
+	if t == nil {
+		return nil
+	}
+	return t.PageBackgroundGradient
+}
+
 // GetPrimary returns the Primary field if it's non-nil, zero value otherwise.
 func (t *TenantUniversalLoginColors) GetPrimary() string {
 	if t == nil || t.Primary == nil {
@@ -4171,20 +4304,20 @@ func (t *Ticket) GetEmail() string {
 	return *t.Email
 }
 
-// GetMarkEmailAsVerified returns the MarkEmailAsVerified field if it's non-nil, zero value otherwise.
-func (t *Ticket) GetMarkEmailAsVerified() bool {
-	if t == nil || t.MarkEmailAsVerified == nil {
-		return false
-	}
-	return *t.MarkEmailAsVerified
-}
-
 // GetIncludeEmailInRedirect returns the IncludeEmailInRedirect field if it's non-nil, zero value otherwise.
 func (t *Ticket) GetIncludeEmailInRedirect() bool {
 	if t == nil || t.IncludeEmailInRedirect == nil {
 		return false
 	}
 	return *t.IncludeEmailInRedirect
+}
+
+// GetMarkEmailAsVerified returns the MarkEmailAsVerified field if it's non-nil, zero value otherwise.
+func (t *Ticket) GetMarkEmailAsVerified() bool {
+	if t == nil || t.MarkEmailAsVerified == nil {
+		return false
+	}
+	return *t.MarkEmailAsVerified
 }
 
 // GetResultURL returns the ResultURL field if it's non-nil, zero value otherwise.
@@ -4442,6 +4575,14 @@ func (u *UserIdentity) GetProvider() string {
 	return *u.Provider
 }
 
+// GetRefreshToken returns the RefreshToken field if it's non-nil, zero value otherwise.
+func (u *UserIdentity) GetRefreshToken() string {
+	if u == nil || u.RefreshToken == nil {
+		return ""
+	}
+	return *u.RefreshToken
+}
+
 // GetUserID returns the UserID field if it's non-nil, zero value otherwise.
 func (u *UserIdentity) GetUserID() string {
 	if u == nil || u.UserID == nil {
@@ -4452,6 +4593,43 @@ func (u *UserIdentity) GetUserID() string {
 
 // String returns a string representation of UserIdentity.
 func (u *UserIdentity) String() string {
+	return Stringify(u)
+}
+
+// GetConnectionID returns the ConnectionID field if it's non-nil, zero value otherwise.
+func (u *UserIdentityLink) GetConnectionID() string {
+	if u == nil || u.ConnectionID == nil {
+		return ""
+	}
+	return *u.ConnectionID
+}
+
+// GetLinkWith returns the LinkWith field if it's non-nil, zero value otherwise.
+func (u *UserIdentityLink) GetLinkWith() string {
+	if u == nil || u.LinkWith == nil {
+		return ""
+	}
+	return *u.LinkWith
+}
+
+// GetProvider returns the Provider field if it's non-nil, zero value otherwise.
+func (u *UserIdentityLink) GetProvider() string {
+	if u == nil || u.Provider == nil {
+		return ""
+	}
+	return *u.Provider
+}
+
+// GetUserID returns the UserID field if it's non-nil, zero value otherwise.
+func (u *UserIdentityLink) GetUserID() string {
+	if u == nil || u.UserID == nil {
+		return ""
+	}
+	return *u.UserID
+}
+
+// String returns a string representation of UserIdentityLink.
+func (u *UserIdentityLink) String() string {
 	return Stringify(u)
 }
 
